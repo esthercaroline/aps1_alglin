@@ -6,24 +6,27 @@ import math
 pygame.init()
 
 class Fase:
-    def __init__(self, largura, altura, titulo):
-        self.largura = largura
-        self.altura = altura
-        self.titulo = titulo
-        self.rodando = True
-        self.tela = pygame.display.set_mode((largura, altura))
-        pygame.display.set_caption(titulo)
+    def __init__(self, width, height , title):
+        self.width = width
+        self.height = height 
+        self.title = title
+        self.running = True
+        self.screen = pygame.display.set_mode((width, height))
+        pygame.display.set_caption(title)
 
-    def desenhar(self):
-        self.tela.fill((0, 0, 0))
+    def draw(self):
+        self.screen.fill((0, 0, 0))
         pygame.display.flip()
 
-    def executar(self):
-        while self.rodando:
+    def execute(self):
+        while self.running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    self.rodando = False
+                    self.running = False
 
-            self.desenhar()
+            self.draw()
 
         pygame.quit()
+
+    def gravity(self, x, y, g, t):
+        return x, y + (1/2) * g * t ** 2
