@@ -4,10 +4,11 @@ import math
 
 # Inicia a classe Monkey
 class Monkey:
-    def __init__(self, x, y):
+    def __init__(self, x, y, width = 1000, height = 500):
         self.initial_x = x
         self.initial_y = y
-        self.image = pygame.image.load("monkey_sem_capacete.webp")
+        self.screen = pygame.display.set_mode((width, height))
+        self.image = pygame.transform.scale(pygame.image.load("assets\macaco.png"), (100, 100))
         self.initial_speed = 0
         self.speed = 0
         self.monkey_mass = 1
@@ -16,8 +17,8 @@ class Monkey:
         self.initial_x += self.speed
         self.initial_y += self.speed
 
-    def draw(self, screen):
-        screen.blit(self.image, (self.initial_x, self.initial_y))
+    def draw(self):
+        self.screen.blit(self.image, (self.initial_x, self.initial_y))
 
     # def jump(self):
     #     self.speed = -10
