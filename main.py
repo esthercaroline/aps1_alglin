@@ -8,3 +8,4 @@ from monkey import Monkey
 fase = Fase(800, 600, "Astro Ape")
 monkey = Monkey(400, 300)
 fase.executar()
+
