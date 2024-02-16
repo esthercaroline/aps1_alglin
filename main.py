@@ -5,7 +5,6 @@ import math
 from fase import Fase
 from monkey import Monkey
 
-fase = Fase(800, 600, "Astro Ape")
+fase = Fase(1000, 500, "Astro Ape", "assets\\bg_space.png")
 monkey = Monkey(400, 300)
-fase.executar()
-
+fase.execute()
