@@ -1,8 +1,11 @@
-import numpy as np
+
 import pygame
 from pygame.locals import *
 import math
 from fase import Fase
+from monkey import Monkey
 
 fase = Fase(800, 600, "Astro Ape")
-fase.execute()
+monkey = Monkey(400, 300)
+fase.executar()
+
