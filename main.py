@@ -14,6 +14,8 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
+    fase.update()
+
     fase.screen.fill((255, 255, 255))
     fase.draw()
 

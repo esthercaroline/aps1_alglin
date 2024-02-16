@@ -21,11 +21,15 @@ class Fase:
         self.screen.blit(self.background, (0, 0))
         platform_rect = pygame.Rect((self.width//2 -200), (self.height-70), 400, 50)
         pygame.draw.rect(self.screen, (0, 0, 255), platform_rect)
-        monkey_y = platform_rect.top - 100 
+        # monkey_y = platform_rect.top - 100 
         monkey_x = platform_rect.left + 140
-        self.monkey.initial_y = monkey_y
+        # self.monkey.initial_y = monkey_y
         self.monkey.initial_x = monkey_x
         self.monkey.draw()
+
+    def update(self):
+        self.monkey.speed_y += 0.5
+        self.monkey.update()
         
     # esses métodos serão usados nas classes de cada objeto (no update)
     # def gravity(g, distance):

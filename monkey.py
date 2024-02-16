@@ -10,12 +10,13 @@ class Monkey:
         self.screen = pygame.display.set_mode((width, height))
         self.image = pygame.transform.scale(pygame.image.load("assets\macaco.png"), (100, 100))
         self.initial_speed = 0
-        self.speed = 0
+        self.speed_x = 0
+        self.speed_y = 0
         self.monkey_mass = 1
 
     def update(self):
-        self.initial_x += self.speed
-        self.initial_y += self.speed
+        self.initial_x += self.speed_x
+        self.initial_y += self.speed_y
 
     def draw(self):
         self.screen.blit(self.image, (self.initial_x, self.initial_y))
