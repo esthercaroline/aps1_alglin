@@ -4,5 +4,5 @@ from pygame.locals import *
 import math
 from fase import Fase
 
-fase = Fase(800, 600, "Astro Ape")
+fase = Fase(1000, 500, "Astro Ape", "assets\\bg_space.png")
 fase.execute()
