@@ -22,6 +22,7 @@ class Monkey:
             self.position = self.initial_pos
         
         self.position = self.position + self.speed
+        self.speed = self.speed + self.gravity
 
     def draw(self):
         self.screen.blit(self.image, self.position)

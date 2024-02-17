@@ -14,13 +14,13 @@ class Fase:
         self.screen = pygame.display.set_mode((width, height))
         self.background = pygame.image.load(bg_path)
         self.background = pygame.transform.scale(self.background, (width, height))
-        self.monkey = Monkey(200, 200)
+        self.platform_rect = pygame.Rect(100, (self.height-80), 200, 40)
+        self.monkey = Monkey(200, self.platform_rect.top - 100)
         pygame.display.set_caption(title)
 
     def draw(self):
         self.screen.blit(self.background, (0, 0))
-        platform_rect = pygame.Rect((self.width//2 -200), (self.height-70), 400, 50)
-        pygame.draw.rect(self.screen, (0, 0, 255), platform_rect)
+        pygame.draw.rect(self.screen, (0, 0, 255), self.platform_rect)
         self.monkey.draw()
 
     def update(self):
