@@ -17,6 +17,7 @@ while running:
     fase.update()
 
     fase.screen.fill((255, 255, 255))
+    
     fase.draw()
 
     pygame.display.flip()
