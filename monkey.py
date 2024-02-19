@@ -13,14 +13,27 @@ class Monkey:
         self.image = pygame.transform.scale(pygame.image.load("assets\macaco.png"), (100, 100))
         self.speed = self.initial_speed
         self.position = self.initial_pos
+        self.mouse_clicked = False
 
     def update(self):
-        if (self.position[1] < 0 or self.position[1] > 400) or (self.position[0] < 0 or self.position[0] > 900):
-            self.initial_speed = pygame.mouse.get_pos() - self.initial_pos
-            self.initial_speed = (self.initial_speed / np.linalg.norm(self.initial_speed)) * 5
-            self.speed = self.initial_speed
-            self.position = self.initial_pos
         
+        if self.mouse_clicked:
+            mouse_pos = np.array(pygame.mouse.get_pos())
+            direction = mouse_pos - self.position
+            if np.linalg.norm(direction) != 0:  # Evitar divisão por zero
+                direction = direction.astype(float) / np.linalg.norm(direction)
+            self.speed = direction * 5  # Velocidade ajustada na direção do mouse
+
+            self.position = self.position + self.speed
+            self.speed = self.speed + self.gravity
+            self.mouse_clicked = False
+
+            if (self.position[1] < 0 or self.position[1] > 400) or (self.position[0] < 0 or self.position[0] > 900):
+                self.initial_speed = pygame.mouse.get_pos() - self.initial_pos
+                self.initial_speed = (self.initial_speed / np.linalg.norm(self.initial_speed)) * 5
+                self.speed = self.initial_speed
+                self.position = self.initial_pos
+            
         self.position = self.position + self.speed
         self.speed = self.speed + self.gravity
 
