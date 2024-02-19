@@ -8,7 +8,7 @@ class Monkey:
     def __init__(self, x, y, width = 1000, height = 500):
         self.initial_pos = np.array([x, y])
         self.initial_speed = np.array([10, -10])
-        self.gravity = np.array([0, 0.1])
+        self.gravity = np.array([0, 0.03])
         self.screen = pygame.display.set_mode((width, height))
         self.image = pygame.transform.scale(pygame.image.load("assets\macaco.png"), (100, 100))
         self.speed = self.initial_speed
