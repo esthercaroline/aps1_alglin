@@ -33,7 +33,7 @@ class Monkey():
                 direction = direction.astype(float) / np.linalg.norm(direction)
             # Calcula a velocidade baseada na distância do macaco e do mouse
             distance = np.linalg.norm(mouse_pos - self.position)
-            speed_multiplier = 1 + distance / 400  # Adjust this multiplier as needed
+            speed_multiplier = 1 + distance / 400  
             self.speed = direction * 5 * speed_multiplier
             self.mouse_clicked = False
             self.on_platform = False
@@ -45,7 +45,7 @@ class Monkey():
                 self.position = self.initial_pos
 
         if not self.on_platform:
-            # Calculating attraction towards banana
+            # Calcula a atração do macaco pela banana
             direction_to_banana = banana_pos - self.position
             distance_to_banana = np.linalg.norm(direction_to_banana)
             if distance_to_banana != 0:

@@ -16,7 +16,9 @@ class Fase():
         self.background = pygame.transform.scale(self.background, (width, height))
         self.platform_rect = pygame.Rect(100, (self.height-80), 200, 40)
         self.target_rect = pygame.Rect(700, (self.height-300), 60, 60)
-        self.banana = pygame.Rect(400, (self.height-400), 20, 60)
+        self.banana_rect = pygame.Rect(400, (self.height-400), 20, 60)
+        self.banana = pygame.image.load("assets\solo_banana_png.png")
+        self.banana = pygame.transform.scale(self.banana, (60, 80))
         self.constant_banana = 3000
         self.monkey = Monkey(200, self.platform_rect.top - 70)
         pygame.display.set_caption(title)
@@ -27,10 +29,11 @@ class Fase():
         self.screen.blit(self.background, (0, 0))
         pygame.draw.rect(self.screen, (0, 0, 255), self.platform_rect)
         pygame.draw.rect(self.screen, (255, 0, 0), self.target_rect)
-        pygame.draw.rect(self.screen, (255, 255, 0), self.banana)
+        # pygame.draw.rect(self.screen, (255, 255, 0), self.banana_rect)
+        self.screen.blit(self.banana, (self.banana_rect.x, self.banana_rect.y))
         self.monkey.draw()
 
-        # Desenhe os corações indicando as vidas
+        # Desenha os corações indicando as vidas
         for i in range(self.monkey.lives):
             self.screen.blit(self.heart_image, (20 + i * 40, 20))
 
@@ -48,7 +51,7 @@ class Fase():
             self.monkey.on_platform = True
 
         # Verifica a colisão do macaco com a banana e diminui as vidas
-        if self.monkey.monkey_rect.colliderect(self.banana):
+        if self.monkey.monkey_rect.colliderect(self.banana_rect):
             self.monkey.reset()
 
-        self.monkey.update(np.array([self.banana.x, self.banana.y]), self.constant_banana)
+        self.monkey.update(np.array([self.banana_rect.x, self.banana_rect.y]), self.constant_banana)
