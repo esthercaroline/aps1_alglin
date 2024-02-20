@@ -4,8 +4,11 @@ import math
 import numpy as np
 
 
+import pygame
+import numpy as np
+
 class Monkey():
-    def __init__(self, x, y, width=1000, height=500, lives=5): # Adicione o atributo lives
+    def __init__(self, x, y, width=1000, height=500, lives=5):
         self.initial_pos = np.array([x, y])
         self.initial_speed = np.array([10, -10])
         self.gravity = np.array([0, 0.03])
@@ -16,7 +19,7 @@ class Monkey():
         self.position = self.initial_pos
         self.mouse_clicked = False
         self.on_platform = True
-        self.lives = lives  # Inicialize o atributo lives
+        self.lives = lives
 
     def update(self, banana_pos, constant):  
         for event in pygame.event.get():
@@ -28,7 +31,10 @@ class Monkey():
             direction = mouse_pos - self.position
             if np.linalg.norm(direction) != 0:
                 direction = direction.astype(float) / np.linalg.norm(direction)
-            self.speed = direction * 5
+            # Calcula a velocidade baseada na distância do macaco e do mouse
+            distance = np.linalg.norm(mouse_pos - self.position)
+            speed_multiplier = 1 + distance / 400  # Adjust this multiplier as needed
+            self.speed = direction * 5 * speed_multiplier
             self.mouse_clicked = False
             self.on_platform = False
 
@@ -54,7 +60,7 @@ class Monkey():
                 self.reset()
 
     def reset(self):
-        if self.lives > 0:  # Verifique se há vidas restantes
+        if self.lives > 0:
             self.lives -= 1 
             self.position = self.initial_pos
             self.speed = self.initial_speed

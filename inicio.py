@@ -46,3 +46,5 @@ class Inicio():
                     return "GAME_SCREEN"
                 elif self.button_rect_instruc.collidepoint(event.pos):
                     return "INSTRUCTIONS_SCREEN"
+                
+                
