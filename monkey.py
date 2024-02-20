@@ -3,8 +3,9 @@ from pygame.locals import *
 import math
 import numpy as np
 
+
 class Monkey:
-    def __init__(self, x, y, width=1000, height=500):
+    def __init__(self, x, y, width=1000, height=500, lives=5): # Adicione o atributo lives
         self.initial_pos = np.array([x, y])
         self.initial_speed = np.array([10, -10])
         self.gravity = np.array([0, 0.03])
@@ -15,6 +16,7 @@ class Monkey:
         self.position = self.initial_pos
         self.mouse_clicked = False
         self.on_platform = True
+        self.lives = lives  # Inicialize o atributo lives
 
     def update(self, banana_pos, constant):
         if self.mouse_clicked and self.on_platform:
@@ -48,10 +50,15 @@ class Monkey:
                 self.reset()
 
     def reset(self):
-        self.position = self.initial_pos
-        self.speed = self.initial_speed
-        self.mouse_clicked = False
-        self.on_platform = True
+        if self.lives > 0:  # Verifique se há vidas restantes
+            self.lives -= 1 
+            self.position = self.initial_pos
+            self.speed = self.initial_speed
+            self.mouse_clicked = False
+            self.on_platform = True
+        else:
+            # ANA COLOCA PRA TELA DE GAMEOVER
+            pass
 
     def draw(self):
         self.monkey_rect.topleft = self.position
