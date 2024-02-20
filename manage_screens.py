@@ -1,11 +1,12 @@
-from inicio import Inicio
+from start import Start
 from fase import Fase
+from instructions import Instructions
 import pygame
 
-class Gerenciador_Telas():
+class ManageScreen():
     def __init__(self, screen):
         self.screen = screen
-        self.level = Inicio()
+        self.level = Start()
     
     def game_loop(self):
         game = True
@@ -18,8 +19,12 @@ class Gerenciador_Telas():
         next_level = self.level.update()
         if next_level == -1:
             return False
-        if next_level == "GAME_SCREEN":
+        elif next_level == "GAME_SCREEN":
             self.level = Fase(1000, 500, "Astro Ape", "assets\\bg_space.png")
+        elif next_level == "INSTRUCTIONS_SCREEN":
+            self.level = Instructions()
+        elif next_level == "START_SCREEN":
+            self.level = Start()
         return True
 
     def draw(self):
