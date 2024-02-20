@@ -6,7 +6,7 @@ import numpy as np
 class Monkey:
     def __init__(self, x, y, width = 1000, height = 500):
         self.initial_pos = np.array([x, y])
-        self.initial_speed = np.array([10, -10])
+        self.initial_speed = np.array([15, -10])
         self.gravity = np.array([0, 0.03])
         self.screen = pygame.display.set_mode((width, height))
         self.image = pygame.transform.scale(pygame.image.load("assets\macaco.png"), (100, 100))
@@ -17,7 +17,7 @@ class Monkey:
         self.on_platform = True
 
     def update(self):
-        if self.mouse_clicked:
+        if self.mouse_clicked and self.on_platform:
             mouse_pos = np.array(pygame.mouse.get_pos())
             direction = mouse_pos - self.position
             if np.linalg.norm(direction) != 0:  
