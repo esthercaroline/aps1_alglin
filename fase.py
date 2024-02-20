@@ -49,6 +49,9 @@ class Fase():
 
         # Verifica a colisão do macaco com a banana e diminui as vidas
         if self.monkey.monkey_rect.colliderect(self.banana):
-            self.monkey.reset()
+            if self.monkey.lives > 0:
+                self.monkey.reset()
+            else:
+                return "GAME_OVER"
 
         self.monkey.update(np.array([self.banana.x, self.banana.y]), self.constant_banana)
