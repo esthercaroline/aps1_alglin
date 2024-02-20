@@ -66,9 +66,6 @@ class Monkey():
             self.speed = self.initial_speed
             self.mouse_clicked = False
             self.on_platform = True
-        else:
-            # ANA COLOCA PRA TELA DE GAMEOVER
-            pass
 
     def draw(self):
         self.monkey_rect.topleft = self.position

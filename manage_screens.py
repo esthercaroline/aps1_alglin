@@ -1,6 +1,7 @@
 from start import Start
 from fase import Fase
 from instructions import Instructions
+from game_over import GameOver
 import pygame
 
 class ManageScreen():
@@ -25,6 +26,8 @@ class ManageScreen():
             self.level = Instructions()
         elif next_level == "START_SCREEN":
             self.level = Start()
+        elif next_level == "GAME_OVER":
+            self.level = GameOver()
         return True
 
     def draw(self):
