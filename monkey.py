@@ -3,20 +3,24 @@ from pygame.locals import *
 import math
 import numpy as np
 
-class Monkey:
+class Monkey():
     def __init__(self, x, y, width = 1000, height = 500):
         self.initial_pos = np.array([x, y])
         self.initial_speed = np.array([10, -10])
         self.gravity = np.array([0, 0.03])
         self.screen = pygame.display.set_mode((width, height))
-        self.image = pygame.transform.scale(pygame.image.load("assets\macaco.png"), (100, 100))
+        self.image = pygame.transform.scale(pygame.image.load("assets\monkey.png"), (70, 70))
         self.monkey_rect = self.image.get_rect()
         self.speed = self.initial_speed
         self.position = self.initial_pos
         self.mouse_clicked = False
         self.on_platform = True
 
-    def update(self):
+    def update(self):  
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                return -1
+    
         if self.mouse_clicked:
             mouse_pos = np.array(pygame.mouse.get_pos())
             direction = mouse_pos - self.position
