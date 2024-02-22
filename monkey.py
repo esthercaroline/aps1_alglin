@@ -25,7 +25,7 @@ class Monkey():
         self.bar_height = 10  
         self.bar_outline_color = (0, 0, 0) 
 
-    def update(self, banana_pos, constant):  
+    def update(self, banana_pos_one, constant_one, banana_pos_two = 0, constant_two = 0):  
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return -1
@@ -50,11 +50,15 @@ class Monkey():
 
         if not self.on_platform:
             # Calcula a atração do macaco pela banana
-            direction_to_banana = banana_pos - self.position
-            distance_to_banana = np.linalg.norm(direction_to_banana)
-            if distance_to_banana != 0:
-                attraction_force = (constant / distance_to_banana**2) * (direction_to_banana / distance_to_banana)
-                self.speed += attraction_force 
+            direction_to_banana_one = banana_pos_one - self.position
+            direction_to_banana_two = banana_pos_two - self.position
+            distance_to_banana_one = np.linalg.norm(direction_to_banana_one)
+            distance_to_banana_two = np.linalg.norm(direction_to_banana_two)
+            if distance_to_banana_one != 0 or distance_to_banana_two != 0:
+                attraction_force_one = (constant_one / distance_to_banana_one**2) * (direction_to_banana_one / distance_to_banana_one)
+                attraction_force_two = (constant_two / distance_to_banana_two**2) * (direction_to_banana_two / distance_to_banana_two)
+                resultant_force = attraction_force_one + attraction_force_two
+                self.speed += resultant_force
 
             self.speed += self.gravity
             self.monkey_rect.topleft = self.position
