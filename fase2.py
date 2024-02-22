@@ -17,7 +17,7 @@ class Fase2():
         self.platform_rect = pygame.Rect((self.width - 200) // 2, (self.height - 90), 200, 20)
         self.platform_img = pygame.image.load("assets\platform.png")
         self.platform_img = pygame.transform.scale(self.platform_img, (150, 60))
-        self.target_rect = pygame.Rect(800, (self.height - 400), 110, 100)
+        self.target_rect = pygame.Rect(800, (self.height - 400), 90,80)
         self.target_planet = pygame.image.load("assets\green_planet.png")
         self.target_planet = pygame.transform.scale(self.target_planet, (110, 100))
         self.speed_icon = pygame.image.load("assets\speed_icon.png")

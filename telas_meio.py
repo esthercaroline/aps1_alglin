@@ -7,7 +7,7 @@ class TelaMeio1():
     def __init__(self):
         pygame.init()
         self.tempo_passado = 0
-        self.tempo_total = 100000
+        self.tempo_total = 200000
         self.screen = pygame.display.set_mode((1000, 500))
         self.texto = "Nível 1"
 
@@ -34,7 +34,7 @@ class TelaMeio2():
     def __init__(self):
         pygame.init()
         self.tempo_passado = 0
-        self.tempo_total = 100000
+        self.tempo_total = 200000
         self.screen = pygame.display.set_mode((1000, 500))
         self.texto = "Nível 2"
 
@@ -61,7 +61,7 @@ class TelaMeio3():
     def __init__(self):
         pygame.init()
         self.tempo_passado = 0
-        self.tempo_total = 100000
+        self.tempo_total = 200000
         self.screen = pygame.display.set_mode((1000, 500))
         self.texto = "Nível 3"
 
@@ -75,7 +75,7 @@ class TelaMeio3():
             return "FASE3"
 
     def draw(self):
-        imagem_fundo = pygame.image.load('assets/bg_space.png')
+        imagem_fundo = pygame.image.load('assets/green_bg.png')
         imagem_fundo = pygame.transform.scale(imagem_fundo, (1000, 500))
         fonte = pygame.font.Font("assets/BruceForeverRegular-X3jd2.ttf", 100)  # Corrigido o caminho da fonte
         texto = fonte.render(self.texto, True, (255, 255, 255))
