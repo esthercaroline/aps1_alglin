@@ -30,7 +30,6 @@ class Fase():
     def draw(self):
         self.screen.blit(self.background, (0, 0))
         pygame.draw.rect(self.screen, (0, 0, 255), self.platform_rect)
-        # pygame.draw.rect(self.screen, (255, 0, 0), self.target_rect)
         self.screen.blit(self.target_planet, (self.target_rect.x, self.target_rect.y))
         self.screen.blit(self.banana, (self.banana_rect.x, self.banana_rect.y))
         self.monkey.draw()
@@ -48,8 +47,8 @@ class Fase():
 
         # Verficar se o macaco colidiu com a plataforma e com o alvo
         if self.monkey.monkey_rect.colliderect(self.target_rect):
-            self.monkey.reset()
-        if self.monkey.monkey_rect.colliderect(self.platform_rect):
+            return "NEXT_LEVEL"
+        if self.monkey.position[0] == self.monkey.initial_pos[0] and self.monkey.position[1] == self.monkey.initial_pos[1]:	
             self.monkey.on_platform = True
 
         # Verifica a colisão do macaco com a banana e diminui as vidas

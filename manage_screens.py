@@ -28,6 +28,9 @@ class ManageScreen():
             self.level = Start()
         elif next_level == "GAME_OVER":
             self.level = GameOver()
+        elif next_level == "NEXT_LEVEL":
+            # self.level = Fase(1000, 500, "Astro Ape", "assets\\bg_space.png")
+            pass
         return True
 
     def draw(self):
