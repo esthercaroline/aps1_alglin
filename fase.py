@@ -14,7 +14,9 @@ class Fase():
         self.screen = pygame.display.set_mode((width, height))
         self.background = pygame.image.load(bg_path)
         self.background = pygame.transform.scale(self.background, (width, height))
-        self.platform_rect = pygame.Rect(100, (self.height-80), 200, 20)
+        self.platform_rect = pygame.Rect(160, (self.height-90), 200, 20)
+        self.platform_img = pygame.image.load("assets\platform.png")
+        self.platform_img = pygame.transform.scale(self.platform_img, (150, 60))
         self.target_rect = pygame.Rect(700, (self.height-300), 80, 80)
         self.target_planet = pygame.image.load("assets\planet_orange.png")
         self.target_planet = pygame.transform.scale(self.target_planet, (100, 100))
@@ -25,14 +27,15 @@ class Fase():
         self.banana = pygame.image.load("assets\solo_banana_png.png")
         self.banana = pygame.transform.scale(self.banana, (60, 80))
         self.constant_banana = 5000
-        self.monkey = Monkey(200, self.platform_rect.top - 70)
+        self.monkey = Monkey(200, self.platform_rect.top - 60)
         pygame.display.set_caption(title)
         self.heart_image = pygame.image.load("assets\heart.png")
         self.heart_image = pygame.transform.scale(self.heart_image, (20, 20))
 
     def draw(self):
         self.screen.blit(self.background, (0, 0))
-        pygame.draw.rect(self.screen, (0, 0, 255), self.platform_rect)
+        # pygame.draw.rect(self.screen, (0, 0, 255), self.platform_rect)
+        self.screen.blit(self.platform_img, (self.platform_rect.x, self.platform_rect.y))
         self.screen.blit(self.target_planet, (self.target_rect.x, self.target_rect.y))
         self.screen.blit(self.banana, (self.banana_rect.x, self.banana_rect.y))
         self.screen.blit(self.speed_icon, (8,470))
