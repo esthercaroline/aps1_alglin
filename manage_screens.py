@@ -4,6 +4,7 @@ from instructions import Instructions
 from game_over import GameOver
 from victory import Victory
 from fase2 import Fase2
+from fase3 import Fase3
 import pygame
 
 class ManageScreen():
@@ -32,6 +33,8 @@ class ManageScreen():
             self.level = GameOver()
         elif next_level == "FASE2":
             self.level = Fase2(1000, 500, "Astro Ape", "assets\orange_bg.png")
+        elif next_level == "FASE3":
+            self.level = Fase3(1000, 500, "Astro Ape", "assets\green_bg.png")
         elif next_level == "VICTORY":
             self.level = Victory()
         return True
