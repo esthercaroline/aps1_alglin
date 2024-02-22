@@ -2,6 +2,7 @@ from start import Start
 from fase import Fase
 from instructions import Instructions
 from game_over import GameOver
+from Victory import Victory
 import pygame
 
 class ManageScreen():
@@ -30,6 +31,7 @@ class ManageScreen():
             self.level = GameOver()
         elif next_level == "NEXT_LEVEL":
             # self.level = Fase(1000, 500, "Astro Ape", "assets\\bg_space.png")
+            self.level = Victory()
             pass
         return True
 
