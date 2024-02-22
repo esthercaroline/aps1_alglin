@@ -14,14 +14,17 @@ class Fase():
         self.screen = pygame.display.set_mode((width, height))
         self.background = pygame.image.load(bg_path)
         self.background = pygame.transform.scale(self.background, (width, height))
-        self.platform_rect = pygame.Rect(100, (self.height-80), 200, 40)
+        self.platform_rect = pygame.Rect(100, (self.height-80), 200, 20)
         self.target_rect = pygame.Rect(700, (self.height-300), 80, 80)
         self.target_planet = pygame.image.load("assets\planet_orange.png")
-        self.target_planet = pygame.transform.scale(self.target_planet, (80, 80))
+        self.target_planet = pygame.transform.scale(self.target_planet, (100, 100))
+        self.speed_icon = pygame.image.load("assets\speed_icon.png")
+        self.speed_icon = pygame.transform.scale(self.speed_icon, (20, 30))
+        self.speed_text = "Velocidade"
         self.banana_rect = pygame.Rect(400, (self.height-400), 60, 80)
         self.banana = pygame.image.load("assets\solo_banana_png.png")
         self.banana = pygame.transform.scale(self.banana, (60, 80))
-        self.constant_banana = 3000
+        self.constant_banana = 5000
         self.monkey = Monkey(200, self.platform_rect.top - 70)
         pygame.display.set_caption(title)
         self.heart_image = pygame.image.load("assets\heart.png")
@@ -32,6 +35,10 @@ class Fase():
         pygame.draw.rect(self.screen, (0, 0, 255), self.platform_rect)
         self.screen.blit(self.target_planet, (self.target_rect.x, self.target_rect.y))
         self.screen.blit(self.banana, (self.banana_rect.x, self.banana_rect.y))
+        self.screen.blit(self.speed_icon, (8,470))
+        font = pygame.font.Font("assets\BruceForeverRegular-X3jd2.ttf", 12)
+        text = font.render(self.speed_text, True, (255, 255, 255))
+        self.screen.blit(text, (14, 450))
         self.monkey.draw()
 
         # Desenha os corações indicando as vidas

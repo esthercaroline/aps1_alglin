@@ -20,6 +20,12 @@ class Monkey():
         self.mouse_clicked = False
         self.on_platform = True
         self.lives = lives
+        self.max_bar_length = 100  
+        self.bar_color = (50, 219, 87)  
+        self.bar_height = 10  
+        self.bar_outline_color = (0, 0, 0) 
+
+
 
     def update(self, banana_pos, constant):  
         for event in pygame.event.get():
@@ -33,7 +39,7 @@ class Monkey():
                 direction = direction.astype(float) / np.linalg.norm(direction)
             # Calcula a velocidade baseada na distância do macaco e do mouse
             distance = np.linalg.norm(mouse_pos - self.position)
-            speed_multiplier = 1 + distance / 300  
+            speed_multiplier = 1 + distance / 400  
             self.speed = direction * 5 * speed_multiplier
             self.mouse_clicked = False
             self.on_platform = False
@@ -50,14 +56,12 @@ class Monkey():
             distance_to_banana = np.linalg.norm(direction_to_banana)
             if distance_to_banana != 0:
                 attraction_force = (constant / distance_to_banana**2) * (direction_to_banana / distance_to_banana)
-                self.speed += attraction_force *2
+                self.speed += attraction_force 
 
             self.speed += self.gravity
             self.monkey_rect.topleft = self.position
             self.position = self.position + self.speed
 
-            # if self.position[1] > 500 or self.position[0] > 1000 or self.position[0] < 0 or self.position[1] < 0:
-            #     self.reset()
 
     def reset(self):
         if self.lives > 1:
@@ -71,3 +75,18 @@ class Monkey():
     def draw(self):
         self.monkey_rect.topleft = self.position
         self.screen.blit(self.image, self.monkey_rect)
+
+        if not self.on_platform:
+            return
+        mouse_pos = np.array(pygame.mouse.get_pos())
+        distance = np.linalg.norm(mouse_pos - self.position)
+        bar_length = int(distance / 5) 
+        bar_length = min(bar_length, self.max_bar_length)
+        bar_x = 35
+        bar_y = self.screen.get_height() - self.bar_height - 10
+
+
+        pygame.draw.rect(self.screen, self.bar_outline_color, (bar_x, bar_y, self.max_bar_length, self.bar_height), 1)
+
+        # Desenha a barra de velocidade
+        pygame.draw.rect(self.screen, self.bar_color, (bar_x, bar_y, bar_length, self.bar_height))
