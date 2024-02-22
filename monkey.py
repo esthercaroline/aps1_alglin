@@ -62,10 +62,17 @@ class Monkey():
     def reset(self):
         if self.lives > 0:
             self.lives -= 1 
+            print(self.lives)
             self.position = self.initial_pos
             self.speed = self.initial_speed
             self.mouse_clicked = False
             self.on_platform = True
+
+    # def hit_target(self):
+    #     self.position = self.initial_pos
+    #     self.speed = self.initial_speed
+    #     self.mouse_clicked = False
+    #     self.on_platform = True
 
     def draw(self):
         self.monkey_rect.topleft = self.position
