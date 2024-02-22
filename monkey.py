@@ -25,8 +25,6 @@ class Monkey():
         self.bar_height = 10  
         self.bar_outline_color = (0, 0, 0) 
 
-
-
     def update(self, banana_pos, constant):  
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
