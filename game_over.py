@@ -5,6 +5,11 @@ class GameOver():
         bg_image = pygame.image.load("assets\\bg_space.png")
         self.bg = pygame.transform.scale(bg_image, (1000, 500))
 
+        self.losing_sound = pygame.mixer.Sound("assets\\violin-lose.mp3")
+        self.losing_sound.set_volume(1)
+        self.losing_sound.play()
+
+
         font_title = pygame.font.Font("assets\BruceForeverRegular-X3jd2.ttf", 100)
         self.game_title = font_title.render("GAME-OVER", True, (0, 102, 204))  # Azul escuro
         title_rect = self.game_title.get_rect(center=(1000/2, 100))
