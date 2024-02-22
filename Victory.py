@@ -17,7 +17,9 @@ class Victory():
         self.quit = font_button.render(self.quit_text, True, (255, 255, 255)) 
         self.quit_padding = 10  
         self.quit_rect = self.quit.get_rect(center=(1000/2 + button_width/2 + self.quit_padding, 450))  
-
+        self.yay = pygame.mixer.Sound("assets\yay-6120.mp3")
+        self.yay.set_volume(1)
+        self.yay.play()
         self.screen = pygame.display.set_mode((1000, 500))
 
     def draw(self):
