@@ -50,28 +50,23 @@ class Monkey():
             distance_to_banana = np.linalg.norm(direction_to_banana)
             if distance_to_banana != 0:
                 attraction_force = (constant / distance_to_banana**2) * (direction_to_banana / distance_to_banana)
-                self.speed += attraction_force * 2
+                self.speed += attraction_force *2
 
             self.speed += self.gravity
             self.monkey_rect.topleft = self.position
             self.position = self.position + self.speed
 
-            if self.position[1] > 500 or self.position[0] > 1000 or self.position[0] < 0 or self.position[1] < 0:
-                self.reset()
+            # if self.position[1] > 500 or self.position[0] > 1000 or self.position[0] < 0 or self.position[1] < 0:
+            #     self.reset()
 
     def reset(self):
-        if self.lives > 0:
+        if self.lives > 1:
             self.lives -= 1 
             self.position = self.initial_pos
             self.speed = self.initial_speed
             self.mouse_clicked = False
             self.on_platform = True
 
-    # def hit_target(self):
-    #     self.position = self.initial_pos
-    #     self.speed = self.initial_speed
-    #     self.mouse_clicked = False
-    #     self.on_platform = True
 
     def draw(self):
         self.monkey_rect.topleft = self.position

@@ -51,6 +51,12 @@ class Fase():
         if self.monkey.position[0] == self.monkey.initial_pos[0] and self.monkey.position[1] == self.monkey.initial_pos[1]:	
             self.monkey.on_platform = True
 
+        if self.monkey.position[1] > 500 or self.monkey.position[0] > 1000 or self.monkey.position[0] < 0 or self.monkey.position[1] < 0:
+            if self.monkey.lives > 1:
+                self.monkey.reset()
+            elif self.monkey.lives == 1:
+                return "GAME_OVER"
+
         # Verifica a colisão do macaco com a banana e diminui as vidas
         if self.monkey.monkey_rect.colliderect(self.banana_rect):
             if self.monkey.lives > 1:
