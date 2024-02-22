@@ -57,7 +57,7 @@ class Fase():
 
         # Verficar se o macaco colidiu com a plataforma e com o alvo
         if self.monkey.monkey_rect.colliderect(self.target_rect):
-            return "FASE2"
+            return "TELA_MEIO2"
         if self.monkey.position[0] == self.monkey.initial_pos[0] and self.monkey.position[1] == self.monkey.initial_pos[1]:	
             self.monkey.on_platform = True
 

@@ -47,6 +47,6 @@ class Start():
                 return -1
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if self.play_rect.collidepoint(event.pos):
-                    return "GAME_SCREEN"
+                    return "TELA_MEIO1"
                 elif self.instructions_rect.collidepoint(event.pos):
                     return "INSTRUCTIONS_SCREEN"
