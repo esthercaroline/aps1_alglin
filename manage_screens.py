@@ -2,7 +2,7 @@ from start import Start
 from fase import Fase
 from instructions import Instructions
 from game_over import GameOver
-from victory import Victory
+from Victory import Victory
 from fase2 import Fase2
 from telas_meio import TelaMeio1, TelaMeio2, TelaMeio3
 from fase3 import Fase3
