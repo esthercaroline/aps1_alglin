@@ -1,10 +1,5 @@
 import pygame
 from pygame.locals import *
-import math
-import numpy as np
-
-
-import pygame
 import numpy as np
 
 class Monkey():
