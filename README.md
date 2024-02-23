@@ -28,8 +28,11 @@ onde:
 - $m_1$ e $m_2$ são as massas dos planetas,
 - r é a distância entre os centros dos planetas.
 
-No jogo, o macaco é atraído pela força gravitacional das bananas, que atuam como os corpos celestes de nosso sistema solar. Para representar isso, as constantes que definem a força gravitacional (G, $m_1$ e $m_2$) estão sendo representadas pela variável "constant_banana", que por sua vez, simula o valor das mesmas, tornando mais fácil a manipulação da atração dos corpos, podendo deixá-la mais ou menos potente. O valor da constante é dividido pela distância ao quadrado entre os corpos, que está sendo calculada pela diferença vetorial entre o macaco e o planeta, e após isso, normaliza-se o vetor com a intenção de manipular sua velocidade de forma uniforme. A força resultante que atua sobre o macaco é a soma vetorial das forças de atração de todas as bananas que estão na fase. Dessa forma, pode-se atualizar a velocidade e a posição do macaco no próximo quadro do jogo.
+No jogo, o macaco é atraído pela força gravitacional das bananas, que atuam como os corpos celestes de nosso sistema. Para representar isso, as constantes que definem a força gravitacional (G, $m_1$ e $m_2$) estão sendo representadas pela variável "constant_banana", que por sua vez, simula o valor das mesmas, tornando mais fácil a manipulação da atração dos corpos, podendo deixá-la mais ou menos potente. O valor da constante é dividido pela distância ao quadrado entre os corpos, que está sendo calculada pela diferença vetorial entre o macaco e o planeta, e após isso, normaliza-se o vetor com a intenção de manipular sua velocidade de forma uniforme. A força resultante que atua sobre o macaco é a soma vetorial das forças de atração de todas as bananas que estão na fase. Dessa forma, pode-se atualizar a velocidade e a posição do macaco no próximo quadro do jogo.
 
 ## Créditos
 
 - Desenvolvido por Ana Helena Caiafa e Esther Caroline Cunha Rodrigues
+-O Chat GPT foi utilizado para a geração de ideias de nomes para o jogo e na geração de ideias de instruções de como jogar.
+-O gerador de imagens do BING foi utilizado para gerar a imagem da tela de vitória.
+-Música e efeitos sonoros foram tirados da plataforma Pixabay.
