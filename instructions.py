@@ -37,13 +37,13 @@ class Instructions():
 
         self.screen.blit(self.instructions, self.instructions.get_rect(center=(1000/2, 100)))
 
-        i1 = self.text_font.render("1. Use o mouse para mirar e clicar para lançar o macaco.", True, (173, 216, 230))
+        i1 = self.text_font.render("1. Use o mouse para mirar e clicar para acertar o planeta.", True, (173, 216, 230))
         self.screen.blit(i1, (80, 180))
-        i2 = self.text_font.render("2. Evite que o macaco atinja o chão ou ultrapasse a tela.", True, (173, 216, 230))
+        i2 = self.text_font.render("2. Evite que o macaco ultrapasse a tela!", True, (173, 216, 230))
         self.screen.blit(i2, (80, 230)) 
         i3 = self.text_font.render("3. Desvie das bananas! Elas tiram uma vida a cada colisão.", True, (173, 216, 230))
         self.screen.blit(i3, (80, 280)) 
-        i4 = self.text_font.render("4. Clique na seta para iniciar o jogo.", True, (173, 216, 230))
+        i4 = self.text_font.render("4. Clique no botão para iniciar o jogo.", True, (173, 216, 230))
         self.screen.blit(i4, (80, 330))
 
         self.screen.blit(self.play_surface, self.play_rect)

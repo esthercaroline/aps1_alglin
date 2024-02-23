@@ -15,10 +15,12 @@ class GameOver():
         title_rect = self.game_title.get_rect(center=(1000/2, 100))
 
 
-        self.loser_text = "Você não resistiu a tentação das bananas e falhou em chegar ao planeta dos macacos!"
+        self.loser_text = "Você não resistiu a tentação das bananas"
         font_loser = pygame.font.Font("assets\BruceForeverRegular-X3jd2.ttf", 15)
         self.loser = font_loser.render(self.loser_text, True, (255, 255, 255))
 
+        self.loser_text_2 = "e falhou em chegar ao planeta dos macacos!"
+        self.loser_2 = font_loser.render(self.loser_text_2, True, (255, 255, 255))
 
         font_button = pygame.font.Font("assets\BruceForeverRegular-X3jd2.ttf", 40)
         self.restart_text = "Reiniciar"
@@ -52,6 +54,7 @@ class GameOver():
         self.quit_rect_text.center = self.quit_rect.center
         self.screen.blit(self.quit, self.quit_rect_text)
         self.screen.blit(self.loser, self.loser.get_rect(center=(1000/2, 200)))
+        self.screen.blit(self.loser_2, self.loser_2.get_rect(center=(1000/2, 250)))
 
     def update(self):
         for event in pygame.event.get():
