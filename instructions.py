@@ -2,41 +2,42 @@ import pygame
 
 class Instructions():
     def __init__(self):
+        # Load the background and the screen
         bg_image = pygame.image.load("assets\\bg_space.png")
         self.bg = pygame.transform.scale(bg_image, (1000, 500))
+        self.screen = pygame.display.set_mode((1000, 500))
 
+        # Load the instructions title
         font_title = pygame.font.Font("assets\BruceForeverRegular-X3jd2.ttf", 80)
         self.text_font = pygame.font.Font("assets\BruceForeverRegular-X3jd2.ttf", 20)
-
         self.instructions = font_title.render('Instruções', True, (0, 102, 204))
 
+        # Load the play button
         self.play_text = "Jogar"
-        self.play = self.text_font.render(self.play_text, True, (0, 102, 204))  # Azul escuro
-        self.play_padding = 10  # Espaçamento interno
+        self.play = self.text_font.render(self.play_text, True, (0, 102, 204)) 
+        self.play_padding = 10  
         self.play_rect = self.play.get_rect(center=(700, 450))
         self.play_surface = pygame.Surface((self.play_rect.width + 2 * self.play_padding, self.play_rect.height + 2 * self.play_padding), pygame.SRCALPHA)
-        self.play_surface.fill((255, 255, 255, 100))  # Transparente
+        self.play_surface.fill((255, 255, 255, 100))  
         self.play_rect = self.play_surface.get_rect(center=(700, 450))
         self.play_rect_text = self.play.get_rect(center=self.play_surface.get_rect().center)
 
+        # Load the back button
         self.back_text = "Back"
-        self.back = self.text_font.render(self.back_text, True, (0, 102, 204))  # Azul escuro
-        self.back_padding = 10  # Espaçamento interno
+        self.back = self.text_font.render(self.back_text, True, (0, 102, 204))
+        self.back_padding = 10
         self.back_rect = self.back.get_rect(center=(300, 450))
         self.back_surface = pygame.Surface((self.back_rect.width + 2 * self.back_padding, self.back_rect.height + 2 * self.back_padding), pygame.SRCALPHA)
-        self.back_surface.fill((255, 255, 255, 100))  # Transparente
+        self.back_surface.fill((255, 255, 255, 100))    
         self.back_rect = self.back_surface.get_rect(center=(300, 450))
         self.back_rect_text = self.back.get_rect(center=self.back_surface.get_rect().center)
 
-        self.screen = pygame.display.set_mode((1000, 500))
-
     def draw(self):
-        self.screen.fill((0, 0, 0))
-
+        # Draw everything on the screen
         self.screen.blit(self.bg, (0, 0))
-
         self.screen.blit(self.instructions, self.instructions.get_rect(center=(1000/2, 100)))
 
+        # Draw the instructions
         i1 = self.text_font.render("1. Use o mouse para mirar e clicar para acertar o planeta.", True, (173, 216, 230))
         self.screen.blit(i1, (80, 180))
         i2 = self.text_font.render("2. Evite que o macaco ultrapasse a tela!", True, (173, 216, 230))
@@ -55,6 +56,7 @@ class Instructions():
         self.screen.blit(self.back, self.back_rect_text)
 
     def update(self):
+        # Event handling and screen update
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return -1

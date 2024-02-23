@@ -6,7 +6,7 @@ class Victory():
         self.bg = pygame.transform.scale(bg_image, (1000, 500))
 
         font_button = pygame.font.Font("assets\BruceForeverRegular-X3jd2.ttf", 35)
-        button_width = 200  # Largura dos botões
+        button_width = 200  
 
         self.restart_text = "Reiniciar"
         self.restart = font_button.render(self.restart_text, True, (255, 255, 255)) 
@@ -25,12 +25,11 @@ class Victory():
     def draw(self):
         self.screen.fill((0, 0, 0))
         self.screen.blit(self.bg, (0, 0))
-
         self.screen.blit(self.restart, self.restart_rect)
         self.screen.blit(self.quit, self.quit_rect)
 
-
     def update(self):
+        # Event handling and screen update
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return -1

@@ -1,6 +1,7 @@
 import pygame
 from manage_screens import ManageScreen
 
+# Initialize the game 
 pygame.init()
 pygame.display.set_caption("Astro Ape")
 screen = pygame.display.set_mode((1000, 500))

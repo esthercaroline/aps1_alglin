@@ -8,12 +8,14 @@ from telas_meio import TelaMeio1, TelaMeio2, TelaMeio3
 from fase3 import Fase3
 import pygame
 
+# This class is responsible for managing the game screens
 class ManageScreen():
     def __init__(self, screen):
         self.screen = screen
         self.level = Start()
     
     def game_loop(self):
+        # Game loop
         game = True
 
         while game:
@@ -21,6 +23,7 @@ class ManageScreen():
             self.draw()
 
     def screen_update(self):
+        # Handles the screen updates
         next_level = self.level.update()
         if next_level == -1:
             return False
