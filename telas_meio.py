@@ -76,6 +76,6 @@ class TelaMeio3():
         bg_img = pygame.image.load('assets/green_bg.png')
         bg_img = pygame.transform.scale(bg_img, (1000, 500))
         font = pygame.font.Font("assets/BruceForeverRegular-X3jd2.ttf", 100) 
-        text = font.render(self.texto, True, (255, 255, 255))
+        text = font.render(self.text, True, (255, 255, 255))
         self.screen.blit(bg_img, (0, 0))
         self.screen.blit(text, text.get_rect(center=(1000/2, 250)))
