@@ -1,7 +1,6 @@
 import numpy as np
 import pygame
 from pygame.locals import *
-import math
 from monkey import Monkey
 
 pygame.init()
